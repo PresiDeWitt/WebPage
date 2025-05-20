@@ -1,0 +1,37 @@
+/* ==========================================================================
+   #TESTIMONIOS
+   ========================================================================== */
+
+.testimonials-container {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  padding: 0 3rem;
+}
+
+.testimonial-slide {
+  padding: 2rem;
+  display: none;
+  animation: fadeEffect 0.5s;
+}
+
+.testimonial-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  background-color: var(--color-secondary);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .testimonials-container {
+    padding: 0 1.5rem;
+  }
+}

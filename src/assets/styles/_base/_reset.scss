@@ -1,0 +1,27 @@
+/* ==========================================================================
+   #RESET
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 100%;
+  line-height: var(--line-height);
+}
+
+body {
+  font-family: var(--font-base);
+  color: var(--color-text);
+  background-color: #f5f7fa;
+  overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

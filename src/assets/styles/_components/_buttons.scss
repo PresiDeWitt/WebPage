@@ -1,0 +1,67 @@
+/* ==========================================================================
+   #BOTONES
+   ========================================================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem 2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: var(--transition-base);
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+  border: 2px solid transparent;
+  text-decoration: none;
+  gap: 0.5rem;
+  outline: none;
+}
+
+.btn-primary {
+  background-color: var(--color-secondary);
+  color: var(--color-text-on-dark);
+  box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+}
+
+.btn-outline {
+  background-color: transparent;
+  border-color: var(--color-text-on-dark);
+  color: var(--color-text-on-dark);
+}
+
+/* Efectos para botones */
+.btn-fill-effect {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn-fill-effect::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: width 0.3s ease;
+  z-index: -1;
+}
+
+.btn-border-animate {
+  position: relative;
+  border: none;
+}
+
+.btn-border-animate::before,
+.btn-border-animate::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: var(--color-secondary);
+  transition: all 0.3s ease;
+}
