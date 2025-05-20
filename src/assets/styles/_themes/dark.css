@@ -1,0 +1,121 @@
+/* Estilos para el botón de cambio de tema */
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  font-size: 1.2rem;
+  opacity: 0.85;
+}
+
+.theme-toggle:hover, .theme-toggle:focus {
+  transform: translateY(-3px);
+  opacity: 1;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.theme-toggle:active {
+  transform: translateY(-1px);
+}
+
+/* Animación para el cambio de icono */
+.theme-toggle i {
+  transition: transform 0.5s ease, opacity 0.3s ease;
+}
+
+.theme-toggle:hover i {
+  transform: rotate(30deg);
+}
+
+/* Para sitios con header fijo, ajustar la posición cuando se hace scroll */
+.header.scrolled + * .theme-toggle {
+  top: 15px;
+}
+
+/* Variables CSS para el tema oscuro */
+:root {
+  --color-bg: #ffffff;
+  --color-text: #333333;
+  --color-primary: #5e72e4;
+  --color-secondary: #3e4676;
+  --color-accent: #ff7f50;
+  --color-card-bg: #ffffff;
+  --color-card-shadow: rgba(0, 0, 0, 0.1);
+  --color-input-bg: #f7f7f7;
+  --color-input-text: #333333;
+  --color-input-border: #e1e1e1;
+  --color-footer-bg: #f9f9f9;
+  --color-header-bg: rgba(255, 255, 255, 0.95);
+  --gradient-primary: linear-gradient(135deg, #5e72e4, #825ee4);
+  --transition-speed: 0.3s;
+}
+
+/* Tema oscuro */
+[data-theme="dark"] {
+  --color-bg: #121212;
+  --color-text: #e0e0e0;
+  --color-primary: #7986cb;
+  --color-secondary: #9fa8da;
+  --color-accent: #ff9e80;
+  --color-card-bg: #1e1e1e;
+  --color-card-shadow: rgba(0, 0, 0, 0.3);
+  --color-input-bg: #2d2d2d;
+  --color-input-text: #e0e0e0;
+  --color-input-border: #444444;
+  --color-footer-bg: #1a1a1a;
+  --color-header-bg: rgba(18, 18, 18, 0.95);
+  --gradient-primary: linear-gradient(135deg, #7986cb, #9575cd);
+}
+
+/* Transición suave al cambiar de tema */
+body {
+  transition: background-color var(--transition-speed) ease,
+  color var(--transition-speed) ease;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+/* Ajustes para elementos específicos en modo oscuro */
+[data-theme="dark"] .card,
+[data-theme="dark"] .service-card,
+[data-theme="dark"] .testimonial-slide {
+  background-color: var(--color-card-bg);
+  box-shadow: 0 8px 30px var(--color-card-shadow);
+}
+
+[data-theme="dark"] input,
+[data-theme="dark"] textarea,
+[data-theme="dark"] select {
+  background-color: var(--color-input-bg);
+  color: var(--color-input-text);
+  border-color: var(--color-input-border);
+}
+
+[data-theme="dark"] .header {
+  background-color: var(--color-header-bg);
+}
+
+[data-theme="dark"] .footer {
+  background-color: var(--color-footer-bg);
+}
+
+/* Mejorar la visibilidad de los enlaces en modo oscuro */
+[data-theme="dark"] a:not(.btn) {
+  color: var(--color-secondary);
+}
+
+[data-theme="dark"] a:not(.btn):hover {
+  color: var(--color-accent);
+}

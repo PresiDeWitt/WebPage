@@ -1,0 +1,44 @@
+/*
+// 1. Configuración y variables
+*/
+@import '_base/variables.css';
+@import '_base/reset.css';
+@import '_base/mixins.css';  /*// Añade esta línea*/
+@import '_base/typography.css';
+@import '_base/animations.css';
+@import '_base/utilities.css';
+
+/*
+// 2. Componentes
+*/
+@import '_components/buttons.css';
+@import '_components/cards.css';
+@import '_components/footer.css';
+@import '_components/forms.css';
+@import '_components/header.css';
+
+/*
+// 3. Layout
+*/
+@import '_layout/layout.css';
+
+/*
+// 4. Secciones
+*/
+@import '_sections/hero.css';
+@import '_sections/services.css';
+@import '_sections/contact.css';
+@import '_sections/seccionNosotros.css';
+@import '_sections/testimonials.css';
+
+/*
+// 5. Themes
+*/
+@import '_themes/dark.css';
+/*
+@import '_themes/light.css';
+*/
+
+/*Demas*/
+@import 'impresion.css';
+@import 'responsive.css';

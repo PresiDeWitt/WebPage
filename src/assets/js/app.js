@@ -502,3 +502,94 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
+/**
+ * Funcionalidad mejorada para el cambio de tema
+ * Se ejecuta inmediatamente para evitar parpadeos
+ */
+(function() {
+  // Comprobar preferencias almacenadas o preferencias del sistema
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const storedTheme = localStorage.getItem('theme');
+
+  // Aplicar tema en cuanto se cargue el script
+  if (storedTheme === 'dark' || (!storedTheme && prefersDark)) {
+    document.documentElement.setAttribute('data-theme', 'dark');
+  } else {
+    document.documentElement.removeAttribute('data-theme');
+  }
+})();
+
+// Cuando el DOM esté completamente cargado
+document.addEventListener('DOMContentLoaded', function() {
+  const themeToggle = document.querySelector('.theme-toggle');
+
+  if (!themeToggle) return;
+
+  const icon = themeToggle.querySelector('i');
+
+  // Asegurarse de que el icono coincida con el tema actual
+  if (document.documentElement.getAttribute('data-theme') === 'dark') {
+    icon.classList.replace('fa-moon', 'fa-sun');
+  } else {
+    icon.classList.replace('fa-sun', 'fa-moon');
+  }
+
+  // Manejar el cambio de tema con animación
+  themeToggle.addEventListener('click', function() {
+    // Añadir clase para animar la transición
+    document.body.classList.add('theme-transitioning');
+
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+
+    if (currentTheme === 'dark') {
+      // Cambiar a tema claro
+      document.documentElement.removeAttribute('data-theme');
+      localStorage.setItem('theme', 'light');
+      icon.classList.add('fa-rotate');
+
+      setTimeout(() => {
+        icon.classList.replace('fa-sun', 'fa-moon');
+        icon.classList.remove('fa-rotate');
+      }, 200);
+
+    } else {
+      // Cambiar a tema oscuro
+      document.documentElement.setAttribute('data-theme', 'dark');
+      localStorage.setItem('theme', 'dark');
+      icon.classList.add('fa-rotate');
+
+      setTimeout(() => {
+        icon.classList.replace('fa-moon', 'fa-sun');
+        icon.classList.remove('fa-rotate');
+      }, 200);
+    }
+
+    // Quitar la clase de transición
+    setTimeout(() => {
+      document.body.classList.remove('theme-transitioning');
+    }, 500);
+  });
+
+  // Responder a cambios en las preferencias del sistema
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+    // Solo cambiar automáticamente si el usuario no ha establecido una preferencia
+    if (!localStorage.getItem('theme')) {
+      if (e.matches) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        if (icon) icon.classList.replace('fa-moon', 'fa-sun');
+      } else {
+        document.documentElement.removeAttribute('data-theme');
+        if (icon) icon.classList.replace('fa-sun', 'fa-moon');
+      }
+    }
+  });
+
+  // Añadir un tooltip al botón de tema
+  themeToggle.setAttribute('title', 'Cambiar a modo ' +
+      (document.documentElement.getAttribute('data-theme') === 'dark' ? 'claro' : 'oscuro'));
+
+  themeToggle.addEventListener('mouseenter', function() {
+    this.setAttribute('title', 'Cambiar a modo ' +
+        (document.documentElement.getAttribute('data-theme') === 'dark' ? 'claro' : 'oscuro'));
+  });
+});
