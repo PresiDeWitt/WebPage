@@ -3,153 +3,370 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Evolve Studio - Agencia creativa digital especializada en diseño web, branding y marketing digital. Transformamos ideas en experiencias digitales.">
-  <meta name="keywords" content="diseño web, branding, marketing digital, agencia digital, desarrollo web">
+  <meta name="description" content="Evolve Studio - Agencia creativa digital especializada en diseño web, branding y marketing digital. Transformamos ideas en experiencias digitales únicas y memorables.">
+  <meta name="keywords" content="diseño web, branding, marketing digital, agencia digital, desarrollo web, UX/UI, SEO, Madrid">
   <meta name="author" content="Evolve Studio">
   <meta property="og:title" content="Evolve Studio | Agencia Creativa Digital">
-  <meta property="og:description" content="Transformamos ideas en experiencias digitales extraordinarias.">
+  <meta property="og:description" content="Transformamos ideas en experiencias digitales extraordinarias que impulsan el crecimiento de tu negocio.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.evolvestudio.es">
   <meta property="og:image" content="https://www.evolvestudio.es/images/og-image.jpg">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Evolve Studio | Agencia Creativa Digital">
+  <meta name="twitter:description" content="Transformamos ideas en experiencias digitales extraordinarias que impulsan el crecimiento de tu negocio.">
+  <meta name="twitter:image" content="https://www.evolvestudio.es/images/og-image.jpg">
 
-  <title>Evolve Studio | Agencia Creativa Digital</title>
+  <title>Evolve Studio | Tu Agencia Creativa Digital</title>
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="src/assets/styles/main.css" /></head>
-<body>
-<!-- Botón de cambio de tema -->
-<button class="theme-toggle" aria-label="Cambiar tema" title="Cambiar tema">
-  <i class="fas fa-moon"></i>
-</button>
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"></noscript>
 
-<!-- Resto de tu HTML... -->
+  <!-- Preload critical CSS -->
+  <link rel="preload" href="src/assets/styles/main.css" as="style">
+  <link rel="stylesheet" href="src/assets/styles/main.css">
+
+  <!-- Preload critical JS -->
+  <link rel="preload" href="src/assets/js/app.js" as="script">
+  <link rel="preload" href="src/assets/js/modules/dom.js" as="script">
+
+  <!-- Deferred loading of non-critical resources -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" media="print" onload="this.media='all'">
+
+  <!-- Structured data for SEO -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Evolve Studio",
+      "image": "https://www.evolvestudio.es/images/logo.png",
+      "url": "https://www.evolvestudio.es",
+      "telephone": "+34911234567",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Calle Principal 123",
+        "addressLocality": "Madrid",
+        "postalCode": "28001",
+        "addressCountry": "ES"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "40.4168",
+        "longitude": "-3.7038"
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+        "opens": "09:00",
+        "closes": "18:00"
+      },
+      "sameAs": [
+        "https://www.facebook.com/evolvestudio",
+        "https://www.instagram.com/evolvestudio",
+        "https://www.linkedin.com/company/evolvestudio",
+        "https://twitter.com/evolvestudio"
+      ]
+    }
+  </script>
+</head>
+
+<body>
 <!-- Skip to Content Link (Accesibilidad) -->
 <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
 
-<!-- Back to Top Button -->
-<a href="#" class="back-to-top" aria-label="Volver arriba">
-  <i class="fas fa-arrow-up"></i>
-</a>
+<!-- Botón de cambio de tema con transición mejorada -->
+<button class="theme-toggle" aria-label="Cambiar tema" title="Cambiar tema">
+  <i class="fas fa-moon theme-icon-dark" aria-hidden="true"></i>
+  <i class="fas fa-sun theme-icon-light" aria-hidden="true"></i>
+  <span class="visually-hidden">Cambiar tema</span>
+</button>
 
-<!-- Header -->
-<header class="header">
+<!-- Cookie Consent Banner -->
+<div class="cookie-banner" id="cookieBanner" role="alert" aria-live="polite">
+  <div class="cookie-content">
+    <p>Utilizamos cookies para mejorar tu experiencia. Al continuar navegando, aceptas nuestra <a href="#" class="cookie-link">política de cookies</a>.</p>
+    <div class="cookie-buttons">
+      <button class="btn btn-outline btn-sm" id="cookieSettings">Configurar</button>
+      <button class="btn btn-primary btn-sm" id="cookieAccept">Aceptar todo</button>
+    </div>
+  </div>
+</div>
+
+<!-- Header con navegación mejorada -->
+<header class="header" id="header">
   <div class="container header-container">
     <a href="#" class="logo" aria-label="Evolve Studio - Inicio">
-      <i class="fas fa-rocket" aria-hidden="true"></i> Evolve Studio
+      <i class="fas fa-rocket" aria-hidden="true"></i>
+      <span class="logo-text">Evolve Studio</span>
     </a>
-    <button class="mobile-toggle" aria-label="Menú" aria-expanded="false" aria-controls="nav-menu">
-      <i class="fas fa-bars" aria-hidden="true"></i>
+
+    <button class="mobile-toggle" aria-label="Menú" aria-expanded="false" aria-controls="nav-menu" id="menuToggle">
+      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span>
     </button>
-    <nav id="nav-menu" class="nav-menu">
-      <ul>
-        <li class="nav-item"><a href="#hero" class="nav-link">Inicio</a></li>
-        <li class="nav-item"><a href="#servicios" class="nav-link">Servicios</a></li>
-        <li class="nav-item"><a href="#nosotros" class="nav-link">Nosotros</a></li>
-        <li class="nav-item"><a href="#testimonios" class="nav-link">Testimonios</a></li>
-        <li class="nav-item"><a href="#contacto" class="nav-link">Contacto</a></li>
+
+    <nav id="nav-menu" class="nav-menu" aria-label="Navegación principal">
+      <ul class="nav-list">
+        <li class="nav-item"><a href="#hero" class="nav-link" data-scroll>Inicio</a></li>
+        <li class="nav-item"><a href="#servicios" class="nav-link" data-scroll>Servicios</a></li>
+        <li class="nav-item"><a href="#nosotros" class="nav-link" data-scroll>Nosotros</a></li>
+        <li class="nav-item"><a href="#portfolio" class="nav-link" data-scroll>Portfolio</a></li>
+        <li class="nav-item"><a href="#testimonios" class="nav-link" data-scroll>Testimonios</a></li>
+        <li class="nav-item"><a href="#contacto" class="nav-link" data-scroll>Contacto</a></li>
+        <li class="nav-item nav-item--featured"><a href="#" class="btn btn-sm btn-accent">Solicitar presupuesto</a></li>
       </ul>
     </nav>
   </div>
 </header>
 
-<!-- Hero Section -->
+<!-- Hero Section mejorada con partículas interactivas -->
 <section id="hero" class="hero" role="banner">
-  <div class="floating-shapes" aria-hidden="true">
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-  </div>
+  <div class="particles-container" id="particles-js" aria-hidden="true"></div>
+
   <div class="container hero-content">
-    <h1 class="hero-title">Transformamos Ideas en <span class="text-gradient">Experiencias Digitales</span></h1>
-    <p class="hero-subtitle">Diseño moderno, desarrollo innovador y estrategias que impulsan tu negocio</p>
-    <div class="hero-cta">
-      <a href="#contacto" class="btn btn-primary">Conversemos</a>
-      <a href="#servicios" class="btn btn-outline">Nuestros servicios</a>
+    <div class="hero-text" data-aos="fade-up">
+      <h1 class="hero-title">
+        Transformamos Ideas en <span class="text-gradient">Experiencias Digitales</span>
+      </h1>
+      <p class="hero-subtitle">
+        Diseño moderno, desarrollo innovador y estrategias personalizadas que potencian tu negocio en el mundo digital
+      </p>
+      <div class="hero-cta">
+        <a href="#contacto" class="btn btn-primary" data-scroll>Conversemos</a>
+        <a href="#servicios" class="btn btn-outline" data-scroll>Nuestros servicios</a>
+      </div>
     </div>
+
+    <div class="hero-image" data-aos="fade-left" data-aos-delay="200">
+      <div class="hero-image-container">
+        <img src="/api/placeholder/600/450" alt="Diseño digital creativo" class="img-fluid">
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll-indicator">
+    <a href="#servicios" class="scroll-down" data-scroll aria-label="Desplazarse hacia abajo">
+      <i class="fas fa-chevron-down" aria-hidden="true"></i>
+    </a>
   </div>
 </section>
 
 <!-- Main Content -->
 <main id="main-content">
-  <!-- Services Section -->
+  <!-- Services Section mejorada con iconos y hover effects -->
   <section id="servicios" class="section services">
     <div class="container">
-      <h2 class="section-title" data-aos="fade-up">Nuestros Servicios</h2>
-      <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Soluciones creativas para potenciar tu marca</p>
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-subtitle-pre">Lo que hacemos</span>
+        <h2 class="section-title">Nuestros Servicios</h2>
+        <p class="section-subtitle">Soluciones creativas y estratégicas para potenciar tu marca</p>
+      </div>
 
       <div class="services-grid">
         <!-- Servicio 1 -->
-        <article class="service-card" data-aos="fade-up" data-aos-delay="150">
-          <div class="service-card-img">
-            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%23f0f0f0'/%3E%3Ctext x='50%' y='50%' font-family='Arial' font-size='20' fill='%23999' text-anchor='middle' dominant-baseline='middle'%3EDiseño Web%3C/text%3E%3C/svg%3E"
-                 data-src="/images/web-design.jpg"
-                 alt="Diseño Web"
-                 loading="lazy"
-                 class="lazy-image">
+        <article class="service-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="service-icon">
+            <i class="fas fa-laptop-code" aria-hidden="true"></i>
           </div>
-          <div class="service-card-content">
-            <h3 class="service-card-title">Diseño Web</h3>
-            <p class="service-card-text">Creamos sitios web atractivos, modernos y optimizados que representan perfectamente tu marca y capturan la atención de tus visitantes.</p>
-            <a href="#" class="service-card-link">Más información <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+          <div class="service-content">
+            <h3 class="service-title">Diseño Web</h3>
+            <p class="service-text">Creamos sitios web atractivos, modernos y optimizados para dispositivos móviles que representan perfectamente tu marca y capturan la atención de tus visitantes.</p>
+            <ul class="service-features">
+              <li>Diseño responsive</li>
+              <li>Optimización UX/UI</li>
+              <li>Desarrollo a medida</li>
+            </ul>
+            <a href="#" class="service-link">Más información <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
           </div>
         </article>
 
         <!-- Servicio 2 -->
-        <article class="service-card" data-aos="fade-up" data-aos-delay="300">
-          <div class="service-card-img">
-            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%23f0f0f0'/%3E%3Ctext x='50%' y='50%' font-family='Arial' font-size='20' fill='%23999' text-anchor='middle' dominant-baseline='middle'%3EBranding%3C/text%3E%3C/svg%3E"
-                 data-src="/images/branding.jpg"
-                 alt="Branding"
-                 loading="lazy"
-                 class="lazy-image">
+        <article class="service-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="service-icon">
+            <i class="fas fa-paint-brush" aria-hidden="true"></i>
           </div>
-          <div class="service-card-content">
-            <h3 class="service-card-title">Branding</h3>
-            <p class="service-card-text">Desarrollamos identidades de marca memorables que conectan con tu audiencia, desde logos y paletas de colores hasta la voz y tono de tu marca.</p>
-            <a href="#" class="service-card-link">Más información <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+          <div class="service-content">
+            <h3 class="service-title">Branding</h3>
+            <p class="service-text">Desarrollamos identidades de marca memorables que conectan con tu audiencia, desde logos y paletas de colores hasta la voz y tono de tu marca.</p>
+            <ul class="service-features">
+              <li>Diseño de logo</li>
+              <li>Identidad corporativa</li>
+              <li>Guía de estilo</li>
+            </ul>
+            <a href="#" class="service-link">Más información <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
           </div>
         </article>
 
         <!-- Servicio 3 -->
-        <article class="service-card" data-aos="fade-up" data-aos-delay="450">
-          <div class="service-card-img">
-            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%23f0f0f0'/%3E%3Ctext x='50%' y='50%' font-family='Arial' font-size='20' fill='%23999' text-anchor='middle' dominant-baseline='middle'%3EMarketing Digital%3C/text%3E%3C/svg%3E"
-                 data-src="/images/digital-marketing.jpg"
-                 alt="Marketing Digital"
-                 loading="lazy"
-                 class="lazy-image">
+        <article class="service-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="service-icon">
+            <i class="fas fa-chart-line" aria-hidden="true"></i>
           </div>
-          <div class="service-card-content">
-            <h3 class="service-card-title">Marketing Digital</h3>
-            <p class="service-card-text">Implementamos estrategias efectivas de marketing digital para aumentar tu visibilidad online y atraer clientes potenciales a tu negocio.</p>
-            <a href="#" class="service-card-link">Más información <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+          <div class="service-content">
+            <h3 class="service-title">Marketing Digital</h3>
+            <p class="service-text">Implementamos estrategias efectivas de marketing digital para aumentar tu visibilidad online y atraer clientes potenciales a tu negocio.</p>
+            <ul class="service-features">
+              <li>SEO y SEM</li>
+              <li>Redes sociales</li>
+              <li>Email marketing</li>
+            </ul>
+            <a href="#" class="service-link">Más información <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
           </div>
         </article>
+
+        <!-- Servicio 4 -->
+        <article class="service-card" data-aos="fade-up" data-aos-delay="400">
+          <div class="service-icon">
+            <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+          </div>
+          <div class="service-content">
+            <h3 class="service-title">E-Commerce</h3>
+            <p class="service-text">Diseñamos y desarrollamos tiendas online atractivas y funcionales que optimizan la experiencia de compra y aumentan las conversiones.</p>
+            <ul class="service-features">
+              <li>Tiendas personalizadas</li>
+              <li>Integración de pagos</li>
+              <li>Optimización de conversión</li>
+            </ul>
+            <a href="#" class="service-link">Más información <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+          </div>
+        </article>
+      </div>
+
+      <div class="section-footer" data-aos="fade-up">
+        <a href="#" class="btn btn-secondary">Ver todos los servicios</a>
       </div>
     </div>
   </section>
 
-  <!-- About Section -->
+  <!-- Nuevaseción Portfolio -->
+  <section id="portfolio" class="section portfolio">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-subtitle-pre">Nuestros proyectos</span>
+        <h2 class="section-title">Portfolio</h2>
+        <p class="section-subtitle">Descubre algunos de nuestros trabajos más destacados</p>
+      </div>
+
+      <div class="portfolio-filter" data-aos="fade-up">
+        <button class="portfolio-filter-btn active" data-filter="all">Todos</button>
+        <button class="portfolio-filter-btn" data-filter="web">Diseño Web</button>
+        <button class="portfolio-filter-btn" data-filter="branding">Branding</button>
+        <button class="portfolio-filter-btn" data-filter="marketing">Marketing</button>
+      </div>
+
+      <div class="portfolio-grid" data-aos="fade-up">
+        <!-- Proyecto 1 -->
+        <article class="portfolio-item" data-category="web">
+          <div class="portfolio-img">
+            <img src="/api/placeholder/600/450" alt="Proyecto de diseño web para restaurante" loading="lazy">
+          </div>
+          <div class="portfolio-overlay">
+            <div class="portfolio-content">
+              <h3 class="portfolio-title">Sabor Mediterráneo</h3>
+              <p class="portfolio-category">Diseño Web</p>
+              <a href="#" class="portfolio-link">Ver proyecto</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Proyecto 2 -->
+        <article class="portfolio-item" data-category="branding">
+          <div class="portfolio-img">
+            <img src="/api/placeholder/600/450" alt="Proyecto de branding para marca de moda" loading="lazy">
+          </div>
+          <div class="portfolio-overlay">
+            <div class="portfolio-content">
+              <h3 class="portfolio-title">EcoStyle</h3>
+              <p class="portfolio-category">Branding</p>
+              <a href="#" class="portfolio-link">Ver proyecto</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Proyecto 3 -->
+        <article class="portfolio-item" data-category="marketing">
+          <div class="portfolio-img">
+            <img src="/api/placeholder/600/450" alt="Campaña de marketing digital" loading="lazy">
+          </div>
+          <div class="portfolio-overlay">
+            <div class="portfolio-content">
+              <h3 class="portfolio-title">TechSolutions</h3>
+              <p class="portfolio-category">Marketing Digital</p>
+              <a href="#" class="portfolio-link">Ver proyecto</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Proyecto 4 -->
+        <article class="portfolio-item" data-category="web">
+          <div class="portfolio-img">
+            <img src="/api/placeholder/600/450" alt="Aplicación web para fitness" loading="lazy">
+          </div>
+          <div class="portfolio-overlay">
+            <div class="portfolio-content">
+              <h3 class="portfolio-title">FitLife Pro</h3>
+              <p class="portfolio-category">Aplicación Web</p>
+              <a href="#" class="portfolio-link">Ver proyecto</a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="section-footer" data-aos="fade-up">
+        <a href="#" class="btn btn-secondary">Ver todos los proyectos</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section renovada con contador de estadísticas -->
   <section id="nosotros" class="section about">
     <div class="container">
       <div class="about-grid">
         <div class="about-img" data-aos="fade-right">
-          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 700'%3E%3Crect width='600' height='700' fill='%23f0f0f0'/%3E%3Ctext x='50%' y='50%' font-family='Arial' font-size='20' fill='%23999' text-anchor='middle' dominant-baseline='middle'%3EEquipo Evolve Studio%3C/text%3E%3C/svg%3E"
-               data-src="/images/team.jpg"
-               alt="Equipo de Evolve Studio"
-               loading="lazy"
-               class="lazy-image">
+          <div class="about-img-grid">
+            <img src="/api/placeholder/400/300" alt="Equipo de Evolve Studio trabajando" loading="lazy" class="about-img-main">
+            <img src="/api/placeholder/300/200" alt="Oficina de Evolve Studio" loading="lazy" class="about-img-secondary">
+            <div class="about-img-pattern" aria-hidden="true"></div>
+          </div>
         </div>
+
         <div class="about-content" data-aos="fade-left">
-          <h2>¿Quiénes Somos?</h2>
-          <p class="about-text">Somos un equipo apasionado de creativos, diseñadores y desarrolladores comprometidos con la excelencia. Desde 2015, hemos ayudado a más de 200 empresas a transformar su presencia digital y alcanzar sus objetivos de negocio.</p>
+          <span class="section-subtitle-pre">Conócenos mejor</span>
+          <h2 class="section-title">¿Quiénes Somos?</h2>
+          <p class="about-text">Somos un equipo multidisciplinar de creativos, diseñadores y desarrolladores comprometidos con la excelencia. Desde 2015, hemos ayudado a más de 200 empresas a transformar su presencia digital y alcanzar sus objetivos de negocio.</p>
           <p class="about-text">Nuestro enfoque se basa en la colaboración estrecha con nuestros clientes, entendiendo sus necesidades únicas para crear soluciones personalizadas que generan resultados tangibles.</p>
+
+          <div class="about-values">
+            <div class="value-item">
+              <div class="value-icon">
+                <i class="fas fa-lightbulb" aria-hidden="true"></i>
+              </div>
+              <div class="value-content">
+                <h3 class="value-title">Creatividad</h3>
+                <p class="value-text">Nos apasiona encontrar soluciones innovadoras para cada desafío.</p>
+              </div>
+            </div>
+
+            <div class="value-item">
+              <div class="value-icon">
+                <i class="fas fa-bullseye" aria-hidden="true"></i>
+              </div>
+              <div class="value-content">
+                <h3 class="value-title">Resultados</h3>
+                <p class="value-text">Nos orientamos a conseguir objetivos medibles para tu negocio.</p>
+              </div>
+            </div>
+          </div>
 
           <div class="stats-grid">
             <div class="stat-box" data-aos="fade-up" data-aos-delay="100">
@@ -170,217 +387,283 @@
     </div>
   </section>
 
-  <!-- Testimonials Section -->
+  <!-- Nueva sección: Equipo -->
+  <section id="equipo" class="section team">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-subtitle-pre">Nuestro talento</span>
+        <h2 class="section-title">Conoce a Nuestro Equipo</h2>
+        <p class="section-subtitle">Profesionales apasionados que hacen posible cada proyecto</p>
+      </div>
+
+      <div class="team-grid">
+        <!-- Miembro 1 -->
+        <div class="team-member" data-aos="fade-up" data-aos-delay="100">
+          <div class="team-img">
+            <img src="/api/placeholder/300/300" alt="Carlos Martinez - Director Creativo" loading="lazy">
+            <div class="team-social">
+              <a href="#" aria-label="LinkedIn de Carlos Martinez"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+              <a href="#" aria-label="Twitter de Carlos Martinez"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+            </div>
+          </div>
+          <div class="team-info">
+            <h3 class="team-name">Carlos Martinez</h3>
+            <p class="team-position">Director Creativo</p>
+          </div>
+        </div>
+
+        <!-- Miembro 2 -->
+        <div class="team-member" data-aos="fade-up" data-aos-delay="200">
+          <div class="team-img">
+            <img src="/api/placeholder/300/300" alt="Elena Gómez - Diseñadora UX/UI" loading="lazy">
+            <div class="team-social">
+              <a href="#" aria-label="LinkedIn de Elena Gómez"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+              <a href="#" aria-label="Behance de Elena Gómez"><i class="fab fa-behance" aria-hidden="true"></i></a>
+            </div>
+          </div>
+          <div class="team-info">
+            <h3 class="team-name">Elena Gómez</h3>
+            <p class="team-position">Diseñadora UX/UI</p>
+          </div>
+        </div>
+
+        <!-- Miembro 3 -->
+        <div class="team-member" data-aos="fade-up" data-aos-delay="300">
+          <div class="team-img">
+            <img src="/api/placeholder/300/300" alt="Miguel Ángel López - Desarrollador Web" loading="lazy">
+            <div class="team-social">
+              <a href="#" aria-label="LinkedIn de Miguel Ángel López"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+              <a href="#" aria-label="GitHub de Miguel Ángel López"><i class="fab fa-github" aria-hidden="true"></i></a>
+            </div>
+          </div>
+          <div class="team-info">
+            <h3 class="team-name">Miguel Ángel López</h3>
+            <p class="team-position">Desarrollador Web</p>
+          </div>
+        </div>
+
+        <!-- Miembro 4 -->
+        <div class="team-member" data-aos="fade-up" data-aos-delay="400">
+          <div class="team-img">
+            <img src="/api/placeholder/300/300" alt="Laura Rodríguez - Marketing Digital" loading="lazy">
+            <div class="team-social">
+              <a href="#" aria-label="LinkedIn de Laura Rodríguez"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+              <a href="#" aria-label="Instagram de Laura Rodríguez"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+            </div>
+          </div>
+          <div class="team-info">
+            <h3 class="team-name">Laura Rodríguez</h3>
+            <p class="team-position">Marketing Digital</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section mejorada con carrusel accesible -->
   <section id="testimonios" class="section testimonials">
     <div class="container">
-      <h2 class="section-title" data-aos="fade-up">Lo Que Dicen Nuestros Clientes</h2>
-      <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Experiencias reales de quienes han confiado en nosotros</p>
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-subtitle-pre">Referencias</span>
+        <h2 class="section-title">Lo Que Dicen Nuestros Clientes</h2>
+        <p class="section-subtitle">Experiencias reales de quienes han confiado en nosotros</p>
+      </div>
 
       <div class="testimonials-container" data-aos="fade-up" data-aos-delay="200">
-        <!-- Testimonio 1 -->
-        <article class="testimonial-slide active" role="tabpanel" aria-labelledby="testimonial-1" id="testimonial-panel-1">
-          <div class="testimonial-content">
-            <blockquote>
-              <p>"Evolve Studio transformó completamente nuestra presencia online. El nuevo sitio web no solo es visualmente impresionante, sino que también ha mejorado significativamente nuestra tasa de conversión. Su equipo fue profesional y atento durante todo el proceso."</p>
-            </blockquote>
-          </div>
-          <div class="testimonial-author">
-            <div class="testimonial-img">
-              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%23ddd'/%3E%3Ctext x='50%' y='50%' font-family='Arial' font-size='20' fill='%23666' text-anchor='middle' dominant-baseline='middle'%3EMR%3C/text%3E%3C/svg%3E"
-                   data-src="/images/testimonial-1.jpg"
-                   alt="María Rodríguez"
-                   loading="lazy"
-                   class="lazy-image">
+        <div class="testimonials-wrapper" id="testimonials-carousel" aria-live="polite">
+          <!-- Testimonio 1 -->
+          <article class="testimonial-slide active" role="tabpanel" aria-labelledby="testimonial-1" id="testimonial-panel-1">
+            <div class="testimonial-card">
+              <div class="testimonial-rating" aria-label="5 de 5 estrellas">
+                <i class="fas fa-star" aria-hidden="true"></i>
+                <i class="fas fa-star" aria-hidden="true"></i>
+                <i class="fas fa-star" aria-hidden="true"></i>
+                <i class="fas fa-star" aria-hidden="true"></i>
+                <i class="fas fa-star" aria-hidden="true"></i>
+              </div>
+              <div class="testimonial-content">
+                <blockquote>
+                  <p>"Evolve Studio transformó completamente nuestra presencia online. El nuevo sitio web no solo es visualmente impresionante, sino que también ha mejorado significativamente nuestra tasa de conversión. Su equipo fue profesional y atento durante todo el proceso."</p>
+                </blockquote>
+              </div>
+              <div class="testimonial-author">
+                <div class="testimonial-img">
+                  <img src="/api/placeholder/100/100" alt="María Rodríguez" loading="lazy">
+                </div>
+                <div class="testimonial-info">
+                  <h3>María Rodríguez</h3>
+                  <p>Directora de Marketing, Innovatech</p>
+                </div>
+              </div>
             </div>
-            <div class="testimonial-info">
-              <h3>María Rodríguez</h3>
-              <p>Directora de Marketing, Innovatech</p>
-            </div>
-          </div>
-        </article>
+          </article>
 
-        <!-- Testimonio 2 -->
-        <article class="testimonial-slide" role="tabpanel" aria-labelledby="testimonial-2" id="testimonial-panel-2" hidden>
-          <div class="testimonial-content">
-            <blockquote>
-              <p>"Después de trabajar con varias agencias, finalmente encontramos a Evolve Studio. Su enfoque estratégico en el branding y marketing digital nos ha ayudado a destacarnos en un mercado muy competitivo. Los resultados hablan por sí mismos."</p>
-            </blockquote>
-          </div>
-          <div class="testimonial-author">
-            <div class="testimonial-img">
-              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%23ddd'/%3E%3Ctext x='50%' y='50%' font-family='Arial' font-size='20' fill='%23666' text-anchor='middle' dominant-baseline='middle'%3ECM%3C/text%3E%3C/svg%3E"
-                   data-src="/images/testimonial-2.jpg"
-                   alt="Carlos Mendoza"
-                   loading="lazy"
-                   class="lazy-image">
+          <!-- Testimonio 2 -->
+          <article class="testimonial-slide" role="tabpanel" aria-labelledby="testimonial-2" id="testimonial-panel-2" hidden>
+            <div class="testimonial-card">
+              <div class="testimonial-rating" aria-label="5 de 5 estrellas">
+                <i class="fas fa-star" aria-hidden="true"></i>
+                <i class="fas fa-star" aria-hidden="true"></i>
+                <i class="fas fa-star" aria-hidden="true"></i>
+                <i class="fas fa-star" aria-hidden="true"></i>
+                <i class="fas fa-star" aria-hidden="true"></i>
+              </div>
+              <div class="testimonial-content">
+                <blockquote>
+                  <p>"Después de trabajar con varias agencias, finalmente encontramos a Evolve Studio. Su enfoque estratégico en el branding y marketing digital nos ha ayudado a destacarnos en un mercado muy competitivo. Los resultados hablan por sí mismos."</p>
+                </blockquote>
+              </div>
+              <div class="testimonial-author">
+                <div class="testimonial-img">
+                  <img src="/api/placeholder/100/100" alt="Carlos Mendoza" loading="lazy">
+                </div>
+                <div class="testimonial-info">
+                  <h3>Carlos Mendoza</h3>
+                  <p>CEO, TechSolutions</p>
+                </div>
+              </div>
             </div>
-            <div class="testimonial-info">
-              <h3>Carlos Mendoza</h3>
-              <p>CEO, TechSolutions</p>
+          </article>
+
+          <!-- Testimonio 3 -->
+          <article class="testimonial-slide" role="tabpanel" aria-labelledby="testimonial-3" id="testimonial-panel-3" hidden>
+            <div class="testimonial-card">
+              <div class="testimonial-rating" aria-label="5 de 5 estrellas">
+                <i class="fas fa-star" aria-hidden="true"></i>
+                <i class="fas fa-star" aria-hidden="true"></i>
+                <i class="fas fa-star" aria-hidden="true"></i>
+                <i class="fas fa-star" aria-hidden="true"></i>
+                <i class="fas fa-star" aria-hidden="true"></i>
+              </div>
+              <div class="testimonial-content">
+                <blockquote>
+                  <p>"La creatividad y profesionalismo de Evolve Studio es incomparable. Entendieron perfectamente nuestra visión y la tradujeron en una identidad visual que nos representa perfectamente. Recomendaría sus servicios sin dudarlo."</p>
+                </blockquote>
+              </div>
+              <div class="testimonial-author">
+                <div class="testimonial-img">
+                  <img src="/api/placeholder/100/100" alt="Laura Pérez" loading="lazy">
+                </div>
+                <div class="testimonial-info">
+                  <h3>Laura Pérez</h3>
+                  <p>Fundadora, EcoStyle</p>
+                </div>
+                </div>
             </div>
-          </div>
-        </article>
-
-        <!-- Testimonio 3 -->
-        <article class="testimonial-slide" role="tabpanel" aria-labelledby="testimonial-3" id="testimonial-panel-3" hidden>
-          <div class="testimonial-content">
-            <blockquote>
-              <p>"La creatividad y profesionalismo de Evolve Studio es incomparable. Entendieron perfectamente nuestra visión y la tradujeron en una identidad visual que nos representa perfectamente. Recomendaría sus servicios sin dudarlo."</p>
-            </blockquote>
-          </div>
-          <div class="testimonial-author">
-            <div class="testimonial-img">
-              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%23ddd'/%3E%3Ctext x='50%' y='50%' font-family='Arial' font-size='20' fill='%23666' text-anchor='middle' dominant-baseline='middle'%3ELS%3C/text%3E%3C/svg%3E"
-                   data-src="/images/testimonial-3.jpg"
-                   alt="Laura Sánchez"
-                   loading="lazy"
-                   class="lazy-image">
+            </article>
             </div>
-            <div class="testimonial-info">
-              <h3>Laura Sánchez</h3>
-              <p>Fundadora, EcoStyle</p>
             </div>
-          </div>
-        </article>
-
-        <div class="testimonial-dots" role="tablist">
-          <button class="dot active" role="tab" aria-label="Testimonio 1" aria-selected="true" aria-controls="testimonial-panel-1" id="testimonial-1" data-slide="0"></button>
-          <button class="dot" role="tab" aria-label="Testimonio 2" aria-selected="false" aria-controls="testimonial-panel-2" id="testimonial-2" data-slide="1"></button>
-          <button class="dot" role="tab" aria-label="Testimonio 3" aria-selected="false" aria-controls="testimonial-panel-3" id="testimonial-3" data-slide="2"></button>
-        </div>
-
-        <div class="testimonial-nav">
-          <button class="testimonial-prev" aria-label="Testimonio anterior">
-            <i class="fas fa-chevron-left" aria-hidden="true"></i>
-          </button>
-          <button class="testimonial-next" aria-label="Testimonio siguiente">
-            <i class="fas fa-chevron-right" aria-hidden="true"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contacto" class="section contact">
-    <div class="container">
-      <h2 class="section-title" data-aos="fade-up">Contacto</h2>
-      <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Estamos listos para impulsar tu próximo proyecto</p>
-
-      <div class="contact-grid">
-        <div class="contact-info" data-aos="fade-right">
-          <h3>¿Tienes un proyecto en mente?</h3>
-          <p class="contact-text">Estamos aquí para ayudarte a llevarlo al siguiente nivel. Contáctanos hoy mismo para una consulta gratuita y descubre cómo podemos transformar tu visión en realidad.</p>
-
-          <address class="contact-details">
-            <div class="contact-item">
-              <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
-              <span>Calle Principal 123, Madrid, España</span>
+            <div class="testimonials-controls">
+              <button class="testimonial-prev" aria-label="Testimonio anterior" id="prevTestimonial">
+                <i class="fas fa-chevron-left" aria-hidden="true"></i>
+              </button>
+              <button class="testimonial-next" aria-label="Siguiente testimonio" id="nextTestimonial">
+                <i class="fas fa-chevron-right" aria-hidden="true"></i>
+              </button>
             </div>
-            <div class="contact-item">
-              <i class="fas fa-phone" aria-hidden="true"></i>
-              <span><a href="tel:+34911234567">+34 91 123 4567</a></span>
             </div>
-            <div class="contact-item">
-              <i class="fas fa-envelope" aria-hidden="true"></i>
-              <span><a href="mailto:info@evolvestudio.es">info@evolvestudio.es</a></span>
             </div>
-          </address>
-        </div>
+            </section>
+    <!-- Contact Section mejorada con formulario accesible -->
+    <section id="contacto" class="section contact">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+            <span class="section-subtitle-pre">Contáctanos</span>
+            <h2 class="section-title">Estamos Aquí Para Ayudarte</h2>
+            <p class="section-subtitle">¿Tienes un proyecto en mente? Hablemos de cómo podemos hacerlo realidad.</p>
+            </div>
 
-        <div class="contact-form" data-aos="fade-left">
-          <form id="contactForm" novalidate>
+            <form id="contactForm" class="contact-form" action="#" method="POST" novalidate>
             <div class="form-group">
-              <label for="nombre" class="form-label">Nombre</label>
-              <input type="text" class="form-control" id="nombre" name="nombre" required minlength="2" maxlength="50">
-              <div class="error-message" id="nombre-error" role="alert"></div>
+                <label for="name" class="form-label">Nombre</label>
+                <input type="text" id="name" name="name" class="form-input" required aria-required="true">
+                <span class="form-error" id="nameError">Por favor, introduce tu nombre.</span>
+            </div>
+
+            <div class="form-group">
+                <label for="email" class="form-label">Correo Electrónico</label>
+                <input type="email" id="email" name="email" class="form-input" required aria-required="true">
+                <span class="form-error
+                " id="emailError">Por favor, introduce un correo electrónico válido.</span>
             </div>
             <div class="form-group">
-              <label for="email" class="form-label">Email</label>
-              <input type="email" class="form-control" id="email" name="email" required>
-              <div class="error-message" id="email-error" role="alert"></div>
+                <label for="message" class="form-label">Mensaje</label>
+                <textarea id="message" name="message" class="form-textarea" rows="5" required aria-required="true"></textarea>
+                <span class="form-error" id="messageError">Por favor, introduce tu mensaje.</span>
             </div>
             <div class="form-group">
-              <label for="asunto" class="form-label">Asunto</label>
-              <input type="text" class="form-control" id="asunto" name="asunto" maxlength="100">
+                <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
             </div>
-            <div class="form-group">
-              <label for="mensaje" class="form-label">Mensaje</label>
-              <textarea class="form-control" id="mensaje" name="mensaje" required minlength="10" maxlength="500"></textarea>
-              <div class="error-message" id="mensaje-error" role="alert"></div>
-            </div>
-            <button type="submit" class="btn btn-primary">
-              <span class="button-text">Enviar Mensaje</span>
-              <span class="button-loader" aria-hidden="true"><i class="fas fa-spinner fa-spin"></i></span>
-            </button>
-          </form>
+            <div class="form-response" id="formResponse" aria-live="polite"></div>
+            </form>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
+    <!-- Footer mejorado con enlaces y mapa del sitio -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="#" aria-label="Evolve Studio - Inicio">
+                        <i class="fas fa-rocket" aria-hidden="true"></i>
+                        <span class="logo-text">Evolve Studio</span>
+                    </a>
+                </div>
+                <nav class="footer-nav
+
+                    <ul class="footer-nav-list">
+              <li><a href="#hero" class="footer-link" data-scroll>Inicio</a></li>
+              <li><a href="#servicios" class="footer-link" data-scroll>Servicios</a></li>
+              <li><a href="#nosotros" class="footer-link" data-scroll>Nosotros</a></li>
+              <li><a href="#portfolio" class="footer-link" data-scroll>Portfolio</a></li>
+              <li><a href="#testimonios" class="footer-link" data-scroll>Testimonios</a></li>
+              <li><a href="#contacto" class="footer-link" data-scroll>Contacto</a></li>
+              </ul>
+
+              </nav>
+
+                <div class="footer-social">
+                    <a href="#" aria-label="Facebook de Evolve Studio"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                    <a href="#" aria-label="Instagram de Evolve Studio"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                    <a href="#" aria-label="LinkedIn de Evolve Studio"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+                    <a href="#" aria-label="Twitter de Evolve Studio"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                </div>
+                <div class="footer-info">
+                    <p>&copy; 2023 Evolve Studio. Todos los derechos reservados.</p>
+                    <p><a href="#" class="footer-link">Política de privacidad</a> | <a href="#" class="footer-link">Términos de servicio</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
 </main>
-
-<!-- Footer -->
-<footer class="footer" role="contentinfo">
-  <div class="container">
-    <div class="footer-top">
-      <div class="footer-col">
-        <h4>Evolve Studio</h4>
-        <p>Transformamos ideas en experiencias digitales extraordinarias que impulsan el éxito de tu negocio.</p>
-        <div class="social-links">
-          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
-          <a href="#" aria-label="Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
-          <a href="#" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
-          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
-        </div>
-      </div>
-
-      <div class="footer-col">
-        <h4>Servicios</h4>
-        <ul class="footer-links">
-          <li><a href="#">Diseño Web</a></li>
-          <li><a href="#">Branding</a></li>
-          <li><a href="#">Marketing Digital</a></li>
-          <li><a href="#">E-commerce</a></li>
-          <li><a href="#">Desarrollo de Apps</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h4>Enlaces Rápidos</h4>
-        <ul class="footer-links">
-          <li><a href="#hero">Inicio</a></li>
-          <li><a href="#servicios">Servicios</a></li>
-          <li><a href="#nosotros">Nosotros</a></li>
-          <li><a href="#testimonios">Testimonios</a></li>
-          <li><a href="#contacto">Contacto</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h4>Boletín</h4>
-        <p>Suscríbete para recibir nuestras últimas noticias y ofertas.</p>
-        <form class="newsletter-form">
-          <label for="newsletter-email" class="visually-hidden">Email</label>
-          <input type="email" id="newsletter-email" placeholder="Tu correo electrónico" required class="form-control">
-          <button type="submit" class="btn btn-primary" style="margin-top: 1rem;">Suscribirse</button>
-        </form>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <p>&copy; <span id="current-year">2025</span> Evolve Studio. Todos los derechos reservados.</p>
-      <ul class="footer-legal">
-        <li><a href="#">Política de Privacidad</a></li>
-        <li><a href="#">Términos de Servicio</a></li>
-        <li><a href="#">Aviso Legal</a></li>
-      </ul>
-    </div>
-  </div>
-</footer>
-
 <!-- Scripts -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 <script src="src/assets/js/app.js" defer></script>
-</body>
-</html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" defer></script>
+<script>
+  // Inicializar AOS
+  AOS.init({
+    duration: 800,
+    once: true,
+  });
+
+  // Inicializar Partículas
+  particlesJS.load('particles-js', 'particles.json', function() {
+    console.log('callback - particles.js config loaded');
+  });
+</script>
+<script>
+  // Contador de estadísticas
+  document.querySelectorAll('.stat-number').forEach((el) => {
+    const countTo = el.getAttribute('data-count');
+    let count = 0;
+    const interval = setInterval(() => {
+      if (count < countTo) {
+        count++;
+        el.textContent = count;
+      } else {
+        clearInterval(interval);
+      }
+    }, 10);
+  });
+</script>
+

@@ -1,0 +1,88 @@
+
+/* =========================================
+   21. Print Styles
+   ========================================= */
+@media print {
+    *,
+    *::before,
+    *::after {
+        background: transparent !important;
+        color: #000 !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    body {
+        font-size: 12pt;
+        line-height: 1.5;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]::after {
+        content: " (" attr(href) ")";
+        font-size: 0.8em;
+        font-weight: normal;
+    }
+
+    abbr[title]::after {
+        content: " (" attr(title) ")";
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    thead {
+        display: table-header-group;
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+
+    .nav-menu,
+    .theme-toggle,
+    .cookie-banner,
+    .hero-scroll-indicator,
+    .footer-social {
+        display: none !important;
+    }
+
+    .container {
+        width: auto;
+        max-width: 100%;
+        padding: 0;
+    }
+
+    .section {
+        padding: 1cm 0;
+        break-inside: avoid;
+    }
+
+    .section-header {
+        break-after: avoid;
+    }
+}

@@ -1,0 +1,119 @@
+/* =========================================
+   13. Testimonials Section
+   ========================================= */
+.testimonials-container {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.testimonials-wrapper {
+  overflow: hidden;
+  position: relative;
+}
+
+.testimonial-slide {
+  transition: all var(--transition-medium);
+}
+
+.testimonial-card {
+  background-color: var(--bg-color);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-2xl);
+  box-shadow: var(--card-shadow);
+  text-align: center;
+  margin: 0 var(--spacing-md);
+}
+
+.testimonial-rating {
+  color: var(--accent-color);
+  margin-bottom: var(--spacing-lg);
+  font-size: var(--font-size-lg);
+}
+
+.testimonial-content blockquote {
+  font-style: italic;
+  font-size: var(--font-size-lg);
+  line-height: 1.7;
+  margin-bottom: var(--spacing-xl);
+  position: relative;
+}
+
+.testimonial-content blockquote::before,
+.testimonial-content blockquote::after {
+  content: '"';
+  color: var(--primary-color);
+  font-size: var(--font-size-3xl);
+  opacity: 0.3;
+  position: absolute;
+}
+
+.testimonial-content blockquote::before {
+  top: -20px;
+  left: -10px;
+}
+
+.testimonial-content blockquote::after {
+  bottom: -40px;
+  right: -10px;
+}
+
+.testimonial-author {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.testimonial-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: var(--spacing-md);
+  border: 3px solid var(--primary-light);
+}
+
+.testimonial-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.testimonial-info h3 {
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--spacing-xs);
+}
+
+.testimonial-info p {
+  color: var(--text-light);
+  font-size: var(--font-size-sm);
+  margin-bottom: 0;
+}
+
+.testimonials-controls {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-xl);
+}
+
+.testimonial-prev, .testimonial-next {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--bg-color);
+  color: var(--primary-color);
+  border: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.testimonial-prev:hover, .testimonial-next:hover {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+  transform: translateY(-3px);
+}

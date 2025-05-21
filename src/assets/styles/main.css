@@ -1,44 +1,27 @@
-/*
-// 1. Configuración y variables
-*/
-@import '_base/variables.css';
-@import '_base/reset.css';
-@import '_base/mixins.css';  /*// Añade esta línea*/
-@import '_base/typography.css';
-@import '_base/animations.css';
-@import '_base/utilities.css';
+@import "_base/resetBase.css";
+@import "_base/typographyBase.css";
+@import "_base/responsiveDesing.css";
 
-/*
-// 2. Componentes
-*/
-@import '_components/buttons.css';
-@import '_components/cards.css';
-@import '_components/footer.css';
-@import '_components/forms.css';
-@import '_components/header.css';
+@import "_components/buttonsComponent.css";
+@import "_components/accessibilityComponent.css";
+@import "_components/animation&transition.css";
+@import "_components/footerComponent.css";
+@import "_components/headerComponent.css";
 
-/*
-// 3. Layout
-*/
-@import '_layout/layout.css';
+@import "_layout/navigationLayout.css";
+@import "_layout/gridLayout.css";
 
-/*
-// 4. Secciones
-*/
-@import '_sections/hero.css';
-@import '_sections/services.css';
-@import '_sections/contact.css';
-@import '_sections/seccionNosotros.css';
-@import '_sections/testimonials.css';
+@import "_sections/aboutSection.css";
+@import "_sections/contactSection.css";
+@import "_sections/heroSection.css";
+@import "_sections/porfoloSection.css";
+@import "_sections/servicesSection.css";
+@import "_sections/teamSection.css";
+@import "_sections/testimonialsSection.css";
 
-/*
-// 5. Themes
-*/
-@import '_themes/dark.css';
-/*
-@import '_themes/light.css';
-*/
+@import "banner/cookieBanner.css";
 
-/*Demas*/
-@import 'impresion.css';
-@import 'responsive.css';
+@import "theme/toggleTheme.css";
+
+@import "utility/printStyles.css";
+@import "utility/utilityClasses.css";

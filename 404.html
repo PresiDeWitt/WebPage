@@ -1,62 +1,534 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="utf-8">
-  <title>Page Not Found</title>
+  <title>¡Ups! Página No Encontrada</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    * {
-      line-height: 1.2;
-      margin: 0;
+    :root {
+      --primary-color: #6366f1;
+      --secondary-color: #8b5cf6;
+      --accent-color: #ec4899;
+      --text-color: #475569;
+      --light-bg: #f8fafc;
+      --dark-text: #1e293b;
     }
 
-    html {
-      color: #888;
-      display: table;
-      font-family: sans-serif;
-      height: 100%;
-      text-align: center;
-      width: 100%;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
     body {
-      display: table-cell;
-      vertical-align: middle;
-      margin: 2em auto;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, var(--light-bg), #e2e8f0);
+      color: var(--text-color);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow-x: hidden;
+    }
+
+    .container {
+      text-align: center;
+      padding: 2rem;
+      max-width: 800px;
+      animation: fadeIn 0.8s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     h1 {
-      color: #555;
-      font-size: 2em;
-      font-weight: 400;
+      font-size: 5rem;
+      font-weight: 900;
+      margin-bottom: 1rem;
+      background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      position: relative;
+      display: inline-block;
+    }
+
+    .subtitle {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      color: var(--dark-text);
+      font-weight: 600;
     }
 
     p {
-      margin: 0 auto;
-      width: 280px;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    @media only screen and (max-width: 280px) {
+    .btn {
+      display: inline-block;
+      background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+      color: white;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 0.75rem 2rem;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      font-size: 1rem;
+      box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+      margin: 0 0.5rem 1rem;
+    }
 
-      body,
-      p {
-        width: 95%;
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 7px 20px rgba(99, 102, 241, 0.5);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--primary-color);
+      color: var(--primary-color);
+      box-shadow: none;
+    }
+
+    .btn-outline:hover {
+      background: rgba(99, 102, 241, 0.1);
+    }
+
+    .error-code {
+      position: relative;
+      font-size: 10rem;
+      font-weight: 900;
+      color: rgba(99, 102, 241, 0.05);
+      letter-spacing: 0.5rem;
+      margin-bottom: -2rem;
+      z-index: -1;
+      animation: pulseEffect 4s infinite ease-in-out;
+    }
+
+    @keyframes pulseEffect {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+    }
+
+    .illustration {
+      margin: 2rem 0;
+      position: relative;
+      width: 300px;
+      height: 300px;
+    }
+
+    .circle {
+      position: absolute;
+      border-radius: 50%;
+      background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+      opacity: 0.7;
+      filter: blur(5px);
+      animation: floatAnimation 6s infinite ease-in-out;
+    }
+
+    .c1 {
+      width: 100px;
+      height: 100px;
+      top: 20%;
+      left: 10%;
+      animation-delay: 0s;
+    }
+
+    .c2 {
+      width: 80px;
+      height: 80px;
+      top: 50%;
+      right: 10%;
+      background: linear-gradient(45deg, var(--secondary-color), var(--accent-color));
+      animation-delay: 1s;
+    }
+
+    .c3 {
+      width: 50px;
+      height: 50px;
+      bottom: 15%;
+      left: 30%;
+      background: linear-gradient(45deg, var(--accent-color), var(--primary-color));
+      animation-delay: 2s;
+    }
+
+    @keyframes floatAnimation {
+      0%, 100% {
+        transform: translateY(0) rotate(0deg);
+      }
+      25% {
+        transform: translateY(-15px) rotate(5deg);
+      }
+      50% {
+        transform: translateY(5px) rotate(-5deg);
+      }
+      75% {
+        transform: translateY(-10px) rotate(2deg);
+      }
+    }
+
+    .compass {
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background-color: white;
+      border: 8px solid var(--primary-color);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+    }
+
+    .compass::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: var(--accent-color);
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+    }
+
+    .needle {
+      position: absolute;
+      width: 4px;
+      height: 65px;
+      background-color: var(--dark-text);
+      top: 50%;
+      left: 50%;
+      transform-origin: bottom center;
+      transform: translate(-50%, -100%);
+      z-index: 1;
+      animation: rotateNeedle 7s infinite ease-in-out;
+    }
+
+    .needle::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-bottom: 15px solid var(--accent-color);
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    @keyframes rotateNeedle {
+      0% {
+        transform: translate(-50%, -100%) rotate(0deg);
+      }
+      25% {
+        transform: translate(-50%, -100%) rotate(90deg);
+      }
+      50% {
+        transform: translate(-50%, -100%) rotate(180deg);
+      }
+      75% {
+        transform: translate(-50%, -100%) rotate(270deg);
+      }
+      100% {
+        transform: translate(-50%, -100%) rotate(360deg);
+      }
+    }
+
+    .search-container {
+      margin: 2rem auto;
+      max-width: 500px;
+      width: 100%;
+      position: relative;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 1rem 1.5rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 50px;
+      background-color: white;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+
+    .search-input:focus {
+      outline: none;
+      border-color: var(--primary-color);
+      box-shadow: 0 5px 20px rgba(99, 102, 241, 0.15);
+    }
+
+    .search-btn {
+      position: absolute;
+      right: 5px;
+      top: 5px;
+      background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+      border: none;
+      border-radius: 50px;
+      padding: 0.7rem 1.5rem;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .search-btn:hover {
+      background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
+    }
+
+    .grid {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background-image: linear-gradient(rgba(99, 102, 241, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(99, 102, 241, 0.05) 1px, transparent 1px);
+      background-size: 30px 30px;
+      z-index: -1;
+    }
+
+    .suggestions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 1rem 0 2rem;
+    }
+
+    .suggestion {
+      background-color: white;
+      padding: 0.5rem 1rem;
+      margin: 0.3rem;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      color: var(--dark-text);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .suggestion:hover {
+      background-color: var(--primary-color);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .error-counter {
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      color: var(--text-color);
+      opacity: 0.7;
+    }
+
+    .counter-number {
+      font-weight: bold;
+      color: var(--accent-color);
+    }
+
+    @media only screen and (max-width: 768px) {
+      .container {
+        padding: 1rem;
       }
 
       h1 {
-        font-size: 1.5em;
-        margin: 0 0 0.3em;
+        font-size: 3rem;
       }
 
+      .error-code {
+        font-size: 6rem;
+        margin-bottom: -1rem;
+      }
+
+      .subtitle {
+        font-size: 1.2rem;
+      }
+
+      .illustration {
+        width: 200px;
+        height: 200px;
+      }
+
+      .compass {
+        width: 100px;
+        height: 100px;
+        border-width: 5px;
+      }
+
+      .needle {
+        height: 45px;
+      }
+    }
+
+    @media only screen and (max-width: 480px) {
+      h1 {
+        font-size: 2.5rem;
+      }
+
+      .error-code {
+        font-size: 4rem;
+      }
+
+      .search-input {
+        padding: 0.8rem 1rem;
+      }
+
+      .search-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+      }
+
+      .btn {
+        display: block;
+        margin: 0.5rem auto;
+        width: 80%;
+      }
     }
   </style>
 </head>
 
 <body>
-  <h1>Page Not Found</h1>
-  <p>Sorry, but the page you were trying to view does not exist.</p>
+<div class="grid"></div>
+<div class="container">
+  <div class="error-code">404</div>
+  <h1>¡Página No Encontrada!</h1>
+  <p class="subtitle">Lo sentimos, parece que te has perdido en el ciberespacio.</p>
+
+  <div class="illustration">
+    <div class="circle c1"></div>
+    <div class="circle c2"></div>
+    <div class="circle c3"></div>
+    <div class="compass">
+      <div class="needle"></div>
+    </div>
+  </div>
+
+  <p>La página que estás buscando podría haber sido eliminada, su nombre ha cambiado o está temporalmente no disponible. No te preocupes, te ayudaremos a encontrar tu camino.</p>
+
+  <div class="search-container">
+    <input type="text" class="search-input" placeholder="¿Qué estás buscando?" id="searchInput">
+    <button class="search-btn" id="searchButton">Buscar</button>
+  </div>
+
+  <div class="suggestions">
+    <span class="suggestion">Página principal</span>
+    <span class="suggestion">Productos</span>
+    <span class="suggestion">Servicios</span>
+    <span class="suggestion">Blog</span>
+    <span class="suggestion">Contacto</span>
+  </div>
+
+  <div>
+    <a href="#" class="btn" id="homeButton">Ir a la página principal</a>
+    <a href="#" class="btn btn-outline" id="backButton">Volver atrás</a>
+  </div>
+
+  <div class="error-counter">
+    Eres el visitante <span class="counter-number" id="visitorCounter">1,337</span> que se ha perdido hoy
+  </div>
+</div>
+
+<script>
+  // Animación de elementos adicionales
+  document.addEventListener('DOMContentLoaded', function() {
+    // Generador de número aleatorio para el contador de visitantes
+    const randomVisitors = Math.floor(Math.random() * 2000) + 500;
+    document.getElementById('visitorCounter').textContent = randomVisitors.toLocaleString();
+
+    // Funcionalidad del botón de atrás
+    document.getElementById('backButton').addEventListener('click', function(e) {
+      e.preventDefault();
+      window.history.back();
+    });
+
+    // Funcionalidad del botón de inicio
+    document.getElementById('homeButton').addEventListener('click', function(e) {
+      e.preventDefault();
+      window.location.href = '/';
+    });
+
+    // Funcionalidad de búsqueda
+    document.getElementById('searchButton').addEventListener('click', performSearch);
+    document.getElementById('searchInput').addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        performSearch();
+      }
+    });
+
+    function performSearch() {
+      const searchQuery = document.getElementById('searchInput').value.trim();
+      if (searchQuery) {
+        // Aquí normalmente redirigirías a la página de búsqueda
+        alert('Buscando: ' + searchQuery);
+        // window.location.href = '/search?q=' + encodeURIComponent(searchQuery);
+      }
+    }
+
+    // Hacer que las sugerencias sean clickeables
+    document.querySelectorAll('.suggestion').forEach(function(suggestion) {
+      suggestion.addEventListener('click', function() {
+        const text = this.textContent.toLowerCase();
+        // Aquí normalmente redirigirías a la sección correspondiente
+        alert('Navegando a: ' + text);
+        // window.location.href = '/' + text.replace(' ', '-');
+      });
+    });
+
+    // Efecto de movimiento de la brújula según el cursor
+    document.addEventListener('mousemove', function(e) {
+      const compass = document.querySelector('.compass');
+      const needle = document.querySelector('.needle');
+
+      if (compass && needle) {
+        const rect = compass.getBoundingClientRect();
+        const compassCenterX = rect.left + rect.width / 2;
+        const compassCenterY = rect.top + rect.height / 2;
+
+        const angle = Math.atan2(e.clientY - compassCenterY, e.clientX - compassCenterX);
+        const degrees = angle * (180 / Math.PI) + 90;
+
+        needle.style.animation = 'none';
+        needle.style.transform = `translate(-50%, -100%) rotate(${degrees}deg)`;
+      }
+    });
+
+    // Restaurar la animación cuando el ratón abandona la ventana
+    document.addEventListener('mouseleave', function() {
+      const needle = document.querySelector('.needle');
+      if (needle) {
+        needle.style.animation = 'rotateNeedle 7s infinite ease-in-out';
+      }
+    });
+  });
+</script>
 </body>
 
 </html>
-<!-- IE needs 512+ bytes: https://docs.microsoft.com/archive/blogs/ieinternals/friendly-http-error-pages -->
+<!--
+  Este código HTML representa una página de error 404 personalizada.
+  Incluye estilos CSS para un diseño atractivo y moderno, así como
+  JavaScript para funcionalidades interactivas como búsqueda y navegación.
+    La página presenta un mensaje de error, una brújula animada y un contador de visitantes.

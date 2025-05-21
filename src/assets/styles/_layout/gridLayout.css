@@ -1,0 +1,145 @@
+
+/* =========================================
+   5. Layout & Grid
+   ========================================= */
+.section {
+    padding: var(--spacing-3xl) 0;
+    position: relative;
+}
+
+.section:nth-child(even) {
+    background-color: var(--bg-alt);
+}
+
+.section-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto var(--spacing-2xl);
+}
+
+.section-title {
+    margin-bottom: var(--spacing-sm);
+    position: relative;
+    display: inline-block;
+}
+
+.section-subtitle-pre {
+    display: block;
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: var(--spacing-sm);
+}
+
+.section-subtitle {
+    font-size: var(--font-size-lg);
+    color: var(--text-light);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.section-footer {
+    text-align: center;
+    margin-top: var(--spacing-2xl);
+}
+
+/* Grid system */
+.services-grid, .portfolio-grid, .stats-grid, .team-grid {
+    display: grid;
+    gap: var(--spacing-xl);
+}
+
+.services-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+.portfolio-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.stats-grid {
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: var(--spacing-2xl);
+}
+
+.team-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-2xl);
+    align-items: center;
+}
+
+.about-img-grid {
+    display: grid;
+    grid-template-areas:
+    "main main"
+    "secondary pattern";
+    gap: var(--spacing-md);
+    position: relative;
+}
+
+.about-img-main {
+    grid-area: main;
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--card-shadow);
+}
+
+.about-img-secondary {
+    grid-area: secondary;
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--card-shadow);
+}
+
+.about-img-pattern {
+    grid-area: pattern;
+    height: 100%;
+    background-color: var(--accent-color);
+    border-radius: var(--border-radius-md);
+    opacity: 0.1;
+}
+
+.about-values {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+    margin: var(--spacing-xl) 0;
+}
+
+.value-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+}
+
+.value-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background-color: rgba(67, 81, 232, 0.1);
+    color: var(--primary-color);
+    border-radius: var(--border-radius-md);
+    font-size: var(--font-size-xl);
+}
+
+.dark-theme .value-icon {
+    background-color: rgba(108, 118, 255, 0.2);
+}
+
+.value-title {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-xs);
+}
+
+.value-text {
+    font-size: var(--font-size-base);
+    color: var(--text-light);
+    margin-bottom: 0;
+}

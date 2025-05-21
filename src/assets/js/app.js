@@ -593,3 +593,25 @@ document.addEventListener('DOMContentLoaded', function() {
         (document.documentElement.getAttribute('data-theme') === 'dark' ? 'claro' : 'oscuro'));
   });
 });
+// Toggle de tema oscuro
+const themeToggle = document.querySelector('[data-theme-toggle]');
+const htmlElement = document.documentElement;
+const currentTheme = localStorage.getItem('theme') || 'light';
+
+// Aplicar tema guardado
+if (currentTheme === 'dark') {
+  htmlElement.setAttribute('data-theme', 'dark');
+}
+
+// Evento para el botón de toggle
+themeToggle.addEventListener('click', () => {
+  const isDark = htmlElement.getAttribute('data-theme') === 'dark';
+
+  if (isDark) {
+    htmlElement.removeAttribute('data-theme');
+    localStorage.setItem('theme', 'light');
+  } else {
+    htmlElement.setAttribute('data-theme', 'dark');
+    localStorage.setItem('theme', 'dark');
+  }
+});
