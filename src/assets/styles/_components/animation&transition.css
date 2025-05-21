@@ -1,7 +1,7 @@
-
 /* =========================================
    19. Animations & Transitions
    ========================================= */
+/* Animación de entrada básica mejorada */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -13,10 +13,135 @@
     }
 }
 
-.fade-in {
-    animation: fadeIn var(--transition-medium) forwards;
+/* Animación de escalado suave */
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
+/* Animación de deslizamiento horizontal */
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Animación de rebote sutil */
+@keyframes gentleBounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+/* Animación de flotación */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Animación de pulsación */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* Animación de rotación */
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Efecto de onda */
+@keyframes wave {
+    0% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-5px);
+    }
+    75% {
+        transform: translateX(5px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* Clases de animación */
+.fade-in {
+    animation: fadeIn var(--transition-medium) forwards cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.scale-in {
+    animation: scaleIn var(--transition-medium) forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.slide-in-left {
+    animation: slideInLeft var(--transition-medium) forwards cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.slide-in-right {
+    animation: slideInRight var(--transition-medium) forwards cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.gentle-bounce {
+    animation: gentleBounce 3s ease-in-out infinite;
+}
+
+.float {
+    animation: float 6s ease-in-out infinite;
+}
+
+.pulse {
+    animation: pulse 3s ease infinite;
+}
+
+.rotate {
+    animation: rotate 12s linear infinite;
+}
+
+.wave {
+    animation: wave 1.5s ease-in-out infinite;
+}
+
+/* Delays y duraciones */
 .delay-100 {
     animation-delay: 100ms;
 }
@@ -27,4 +152,77 @@
 
 .delay-300 {
     animation-delay: 300ms;
+}
+
+.delay-400 {
+    animation-delay: 400ms;
+}
+
+.delay-500 {
+    animation-delay: 500ms;
+}
+
+.duration-200 {
+    animation-duration: 200ms;
+}
+
+.duration-300 {
+    animation-duration: 300ms;
+}
+
+.duration-500 {
+    animation-duration: 500ms;
+}
+
+.duration-700 {
+    animation-duration: 700ms;
+}
+
+.duration-1000 {
+    animation-duration: 1000ms;
+}
+
+/* Efecto hover para elementos interactivos */
+.interactive {
+    transition: all var(--transition-fast) cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.interactive:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.interactive:active {
+    transform: translateY(1px);
+}
+
+/* Efecto ripple para botones */
+@keyframes ripple {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+.ripple-effect {
+    position: relative;
+    overflow: hidden;
+}
+
+.ripple-effect::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    border-radius: 100%;
+    transform: scale(1, 1) translate(-50%, -50%);
+    transform-origin: 50% 50%;
+}
+
+.ripple-effect:focus:not(:active)::after {
+    animation: ripple 0.6s ease-out;
 }

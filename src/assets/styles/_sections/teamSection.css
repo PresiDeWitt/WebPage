@@ -82,4 +82,7 @@
         color: var(--text-light);
         font-size: var(--font-size-sm);
     }
+    .rotate-on-hover:hover {
+        animation: rotate 0.5s linear;
+    }
 }

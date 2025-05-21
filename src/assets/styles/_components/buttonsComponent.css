@@ -127,3 +127,6 @@
 .service-link:hover i {
   transform: translateX(4px);
 }
+.pulse-on-hover:hover {
+  animation: pulse 0.5s ease;
+}
