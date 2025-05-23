@@ -1,203 +1,110 @@
 <!doctype html>
 <html lang="es">
-
 <head>
   <meta charset="utf-8">
   <title>¡Ups! Página No Encontrada</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Página no encontrada - Error 404">
   <style>
     :root {
-      --primary-color: #6366f1;
-      --secondary-color: #8b5cf6;
-      --accent-color: #ec4899;
-      --text-color: #475569;
+      --primary: #6366f1;
+      --secondary: #8b5cf6;
+      --accent: #ec4899;
+      --text: #475569;
       --light-bg: #f8fafc;
       --dark-text: #1e293b;
+      --white: #ffffff;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
+    *,*::before,*::after {
       box-sizing: border-box;
     }
 
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      font-family: system-ui, -apple-system, sans-serif;
       background: linear-gradient(135deg, var(--light-bg), #e2e8f0);
-      color: var(--text-color);
+      color: var(--text);
       min-height: 100vh;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
       align-items: center;
-      overflow-x: hidden;
+      justify-content: center;
+      line-height: 1.6;
+      padding: 2rem 1rem;
     }
 
     .container {
       text-align: center;
       padding: 2rem;
-      max-width: 800px;
-      animation: fadeIn 0.8s ease-in-out;
+      max-width: min(1200px, 90vw);
+      width: 100%;
+      animation: fadeIn 0.6s ease-out;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
     }
 
     @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    h1 {
-      font-size: 5rem;
-      font-weight: 900;
-      margin-bottom: 1rem;
-      background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      position: relative;
-      display: inline-block;
-    }
-
-    .subtitle {
-      font-size: 1.5rem;
-      margin-bottom: 2rem;
-      color: var(--dark-text);
-      font-weight: 600;
-    }
-
-    p {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      margin-bottom: 2rem;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .btn {
-      display: inline-block;
-      background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-      color: white;
-      font-weight: 600;
-      text-decoration: none;
-      padding: 0.75rem 2rem;
-      border-radius: 50px;
-      transition: all 0.3s ease;
-      font-size: 1rem;
-      box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
-      margin: 0 0.5rem 1rem;
-    }
-
-    .btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 7px 20px rgba(99, 102, 241, 0.5);
-    }
-
-    .btn-outline {
-      background: transparent;
-      border: 2px solid var(--primary-color);
-      color: var(--primary-color);
-      box-shadow: none;
-    }
-
-    .btn-outline:hover {
-      background: rgba(99, 102, 241, 0.1);
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .error-code {
-      position: relative;
-      font-size: 10rem;
+      font-size: clamp(6rem, 12vw, 12rem);
       font-weight: 900;
-      color: rgba(99, 102, 241, 0.05);
-      letter-spacing: 0.5rem;
-      margin-bottom: -2rem;
-      z-index: -1;
-      animation: pulseEffect 4s infinite ease-in-out;
+      color: rgba(99, 102, 241, 0.08);
+      margin: 0;
+      line-height: 0.8;
+      user-select: none;
+      position: relative;
     }
 
-    @keyframes pulseEffect {
-      0%, 100% {
-        transform: scale(1);
-      }
-      50% {
-        transform: scale(1.05);
-      }
+    h1 {
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      font-weight: 800;
+      margin: 0;
+      background: linear-gradient(45deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .subtitle {
+      font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+      margin: 0;
+      color: var(--dark-text);
+      font-weight: 600;
+      max-width: 800px;
+    }
+
+    .description {
+      font-size: clamp(1rem, 1.5vw, 1.3rem);
+      margin: 0;
+      max-width: 700px;
+      color: var(--text);
+      line-height: 1.7;
     }
 
     .illustration {
-      margin: 2rem 0;
+      margin: 1.5rem 0;
+      width: min(400px, 60vw);
+      height: min(400px, 60vw);
       position: relative;
-      width: 300px;
-      height: 300px;
-    }
-
-    .circle {
-      position: absolute;
-      border-radius: 50%;
-      background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-      opacity: 0.7;
-      filter: blur(5px);
-      animation: floatAnimation 6s infinite ease-in-out;
-    }
-
-    .c1 {
-      width: 100px;
-      height: 100px;
-      top: 20%;
-      left: 10%;
-      animation-delay: 0s;
-    }
-
-    .c2 {
-      width: 80px;
-      height: 80px;
-      top: 50%;
-      right: 10%;
-      background: linear-gradient(45deg, var(--secondary-color), var(--accent-color));
-      animation-delay: 1s;
-    }
-
-    .c3 {
-      width: 50px;
-      height: 50px;
-      bottom: 15%;
-      left: 30%;
-      background: linear-gradient(45deg, var(--accent-color), var(--primary-color));
-      animation-delay: 2s;
-    }
-
-    @keyframes floatAnimation {
-      0%, 100% {
-        transform: translateY(0) rotate(0deg);
-      }
-      25% {
-        transform: translateY(-15px) rotate(5deg);
-      }
-      50% {
-        transform: translateY(5px) rotate(-5deg);
-      }
-      75% {
-        transform: translateY(-10px) rotate(2deg);
-      }
     }
 
     .compass {
-      position: absolute;
-      width: 150px;
-      height: 150px;
+      width: min(150px, 30vw);
+      height: min(150px, 30vw);
       border-radius: 50%;
-      background-color: white;
-      border: 8px solid var(--primary-color);
+      background: var(--white);
+      border: 8px solid var(--primary);
+      position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+      box-shadow: 0 12px 35px rgba(99, 102, 241, 0.25);
       overflow: hidden;
-      box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
     }
 
     .compass::after {
@@ -205,61 +112,112 @@
       position: absolute;
       width: 20px;
       height: 20px;
-      background-color: var(--accent-color);
+      background: var(--accent);
       border-radius: 50%;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      z-index: 2;
     }
 
     .needle {
       position: absolute;
-      width: 4px;
-      height: 65px;
-      background-color: var(--dark-text);
+      width: 3px;
+      height: 45%;
+      background: var(--dark-text);
       top: 50%;
       left: 50%;
       transform-origin: bottom center;
       transform: translate(-50%, -100%);
-      z-index: 1;
-      animation: rotateNeedle 7s infinite ease-in-out;
+      transition: transform 0.1s ease-out;
     }
 
-    .needle::after {
+    .needle::before {
       content: '';
       position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
       width: 0;
       height: 0;
       border-left: 8px solid transparent;
       border-right: 8px solid transparent;
-      border-bottom: 15px solid var(--accent-color);
-      top: -12px;
+      border-bottom: 15px solid var(--accent);
+    }
+
+    .minute-hand {
+      position: absolute;
+      width: 4px;
+      height: 35%;
+      background: var(--primary);
+      top: 50%;
       left: 50%;
-      transform: translateX(-50%);
+      transform-origin: bottom center;
+      transform: translate(-50%, -100%);
+      transition: transform 0.3s ease-out;
     }
 
-    @keyframes rotateNeedle {
-      0% {
-        transform: translate(-50%, -100%) rotate(0deg);
-      }
-      25% {
-        transform: translate(-50%, -100%) rotate(90deg);
-      }
-      50% {
-        transform: translate(-50%, -100%) rotate(180deg);
-      }
-      75% {
-        transform: translate(-50%, -100%) rotate(270deg);
-      }
-      100% {
-        transform: translate(-50%, -100%) rotate(360deg);
-      }
+    .hour-hand {
+      position: absolute;
+      width: 5px;
+      height: 25%;
+      background: var(--secondary);
+      top: 50%;
+      left: 50%;
+      transform-origin: bottom center;
+      transform: translate(-50%, -100%);
+      transition: transform 0.5s ease-out;
     }
 
-    .search-container {
-      margin: 2rem auto;
-      max-width: 500px;
+    .floating-shapes {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .shape {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.6;
+      filter: blur(3px);
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .shape:nth-child(1) {
+      width: clamp(60px, 8vw, 100px);
+      height: clamp(60px, 8vw, 100px);
+      background: linear-gradient(45deg, var(--primary), var(--secondary));
+      top: 20%;
+      left: 15%;
+      animation-delay: 0s;
+    }
+
+    .shape:nth-child(2) {
+      width: clamp(50px, 6vw, 80px);
+      height: clamp(50px, 6vw, 80px);
+      background: linear-gradient(45deg, var(--secondary), var(--accent));
+      top: 60%;
+      right: 20%;
+      animation-delay: 2s;
+    }
+
+    .shape:nth-child(3) {
+      width: clamp(40px, 5vw, 60px);
+      height: clamp(40px, 5vw, 60px);
+      background: linear-gradient(45deg, var(--accent), var(--primary));
+      bottom: 25%;
+      left: 25%;
+      animation-delay: 4s;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      33% { transform: translateY(-15px) rotate(5deg); }
+      66% { transform: translateY(10px) rotate(-5deg); }
+    }
+
+    .search-form {
+      max-width: 600px;
       width: 100%;
       position: relative;
     }
@@ -267,268 +225,418 @@
     .search-input {
       width: 100%;
       padding: 1rem 1.5rem;
-      font-size: 1rem;
-      border: none;
-      border-radius: 50px;
-      background-color: white;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-      transition: all 0.3s ease;
+      font-size: clamp(1rem, 1.2vw, 1.2rem);
       border: 2px solid transparent;
+      border-radius: 50px;
+      background: var(--white);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+      transition: all 0.2s ease;
     }
 
     .search-input:focus {
       outline: none;
-      border-color: var(--primary-color);
-      box-shadow: 0 5px 20px rgba(99, 102, 241, 0.15);
+      border-color: var(--primary);
+      box-shadow: 0 6px 25px rgba(99, 102, 241, 0.15);
     }
 
     .search-btn {
       position: absolute;
-      right: 5px;
-      top: 5px;
-      background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+      right: 6px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: linear-gradient(45deg, var(--primary), var(--secondary));
       border: none;
       border-radius: 50px;
-      padding: 0.7rem 1.5rem;
-      color: white;
+      padding: 0.75rem 1.5rem;
+      color: var(--white);
       font-weight: 600;
       cursor: pointer;
-      transition: all 0.3s ease;
+      font-size: clamp(0.9rem, 1vw, 1.1rem);
+      transition: all 0.2s ease;
     }
 
     .search-btn:hover {
-      background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
-    }
-
-    .grid {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      background-image: linear-gradient(rgba(99, 102, 241, 0.05) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(99, 102, 241, 0.05) 1px, transparent 1px);
-      background-size: 30px 30px;
-      z-index: -1;
+      background: linear-gradient(45deg, var(--secondary), var(--primary));
+      transform: translateY(-50%) scale(1.05);
     }
 
     .suggestions {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      margin: 1rem 0 2rem;
+      gap: 0.8rem;
+      max-width: 800px;
     }
 
     .suggestion {
-      background-color: white;
-      padding: 0.5rem 1rem;
-      margin: 0.3rem;
+      background: var(--white);
+      padding: 0.7rem 1.3rem;
       border-radius: 50px;
-      font-size: 0.9rem;
+      font-size: clamp(0.9rem, 1vw, 1.1rem);
       color: var(--dark-text);
-      transition: all 0.3s ease;
       cursor: pointer;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      transition: all 0.2s ease;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+      border: 1px solid transparent;
+      text-decoration: none;
     }
 
     .suggestion:hover {
-      background-color: var(--primary-color);
-      color: white;
+      background: var(--primary);
+      color: var(--white);
       transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(99, 102, 241, 0.25);
     }
 
-    .error-counter {
-      margin-top: 2rem;
-      font-size: 0.9rem;
-      color: var(--text-color);
-      opacity: 0.7;
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      max-width: 600px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      background: linear-gradient(45deg, var(--primary), var(--secondary));
+      color: var(--white);
+      font-weight: 600;
+      text-decoration: none;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      font-size: clamp(1rem, 1.1vw, 1.2rem);
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+      border: none;
+      cursor: pointer;
+      min-width: 180px;
+      justify-content: center;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(99, 102, 241, 0.4);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--primary);
+      color: var(--primary);
+      box-shadow: none;
+    }
+
+    .btn-outline:hover {
+      background: rgba(99, 102, 241, 0.1);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(99, 102, 241, 0.2);
+    }
+
+    .counter {
+      font-size: clamp(0.9rem, 1vw, 1.1rem);
+      color: var(--text);
+      opacity: 0.8;
+      max-width: 500px;
     }
 
     .counter-number {
-      font-weight: bold;
-      color: var(--accent-color);
+      font-weight: 700;
+      color: var(--accent);
     }
 
-    @media only screen and (max-width: 768px) {
-      .container {
-        padding: 1rem;
-      }
+    .grid-bg {
+      position: fixed;
+      inset: 0;
+      background-image:
+              linear-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+      background-size: 30px 30px;
+      z-index: -2;
+      pointer-events: none;
+    }
 
-      h1 {
-        font-size: 3rem;
+    /* Mejoras específicas para pantallas grandes */
+    @media (min-width: 1200px) {
+      .container {
+        max-width: 1400px;
+        padding: 3rem;
+        gap: 2rem;
       }
 
       .error-code {
+        font-size: 14rem;
+      }
+
+      h1 {
         font-size: 6rem;
-        margin-bottom: -1rem;
       }
 
       .subtitle {
-        font-size: 1.2rem;
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      .description {
+        font-size: 1.4rem;
+        margin-bottom: 2rem;
       }
 
       .illustration {
-        width: 200px;
-        height: 200px;
+        width: 500px;
+        height: 500px;
+        margin: 2rem 0;
       }
 
       .compass {
-        width: 100px;
-        height: 100px;
-        border-width: 5px;
+        width: 200px;
+        height: 200px;
+        border-width: 10px;
       }
 
-      .needle {
-        height: 45px;
-      }
-    }
-
-    @media only screen and (max-width: 480px) {
-      h1 {
-        font-size: 2.5rem;
+      .compass::after {
+        width: 25px;
+        height: 25px;
       }
 
-      .error-code {
-        font-size: 4rem;
+      .search-form {
+        max-width: 700px;
       }
 
       .search-input {
-        padding: 0.8rem 1rem;
+        padding: 1.2rem 2rem;
+        font-size: 1.3rem;
       }
 
       .search-btn {
-        padding: 0.5rem 1rem;
-        font-size: 0.9rem;
+        padding: 1rem 2rem;
+        font-size: 1.2rem;
+      }
+
+      .buttons {
+        gap: 2rem;
       }
 
       .btn {
-        display: block;
-        margin: 0.5rem auto;
-        width: 80%;
+        padding: 1.2rem 2.5rem;
+        font-size: 1.3rem;
+        min-width: 220px;
       }
+
+      .suggestions {
+        gap: 1rem;
+      }
+
+      .suggestion {
+        padding: 0.8rem 1.5rem;
+        font-size: 1.2rem;
+      }
+    }
+
+    @media (min-width: 1600px) {
+      body {
+        padding: 3rem 2rem;
+      }
+
+      .container {
+        gap: 2.5rem;
+      }
+
+      .error-code {
+        font-size: 16rem;
+      }
+
+      h1 {
+        font-size: 7rem;
+      }
+
+      .illustration {
+        width: 600px;
+        height: 600px;
+      }
+
+      .compass {
+        width: 250px;
+        height: 250px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 1rem;
+      }
+
+      .container {
+        padding: 1rem;
+        gap: 1rem;
+      }
+
+      .buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .btn {
+        width: 100%;
+        max-width: 300px;
+      }
+
+      .search-btn {
+        position: static;
+        transform: none;
+        margin-top: 0.5rem;
+        width: 100%;
+      }
+
+      .search-form {
+        text-align: center;
+      }
+
+      .suggestions {
+        gap: 0.5rem;
+      }
+
+      .suggestion {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+      }
+    }
+
+    /* Clase de accesibilidad para lectores de pantalla */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
     }
   </style>
 </head>
-
 <body>
-<div class="grid"></div>
-<div class="container">
-  <div class="error-code">404</div>
+<div class="grid-bg"></div>
+
+<main class="container">
+  <div class="error-code" aria-hidden="true">404</div>
   <h1>¡Página No Encontrada!</h1>
   <p class="subtitle">Lo sentimos, parece que te has perdido en el ciberespacio.</p>
 
   <div class="illustration">
-    <div class="circle c1"></div>
-    <div class="circle c2"></div>
-    <div class="circle c3"></div>
+    <div class="floating-shapes">
+      <div class="shape"></div>
+      <div class="shape"></div>
+      <div class="shape"></div>
+    </div>
     <div class="compass">
+      <div class="hour-hand"></div>
+      <div class="minute-hand"></div>
       <div class="needle"></div>
     </div>
   </div>
 
-  <p>La página que estás buscando podría haber sido eliminada, su nombre ha cambiado o está temporalmente no disponible. No te preocupes, te ayudaremos a encontrar tu camino.</p>
+  <p class="description">
+    La página que buscas podría haber sido eliminada, su nombre ha cambiado o está temporalmente no disponible. No te preocupes, te ayudaremos a encontrar tu camino.
+  </p>
 
-  <div class="search-container">
-    <input type="text" class="search-input" placeholder="¿Qué estás buscando?" id="searchInput">
-    <button class="search-btn" id="searchButton">Buscar</button>
+  <form class="search-form" role="search">
+    <label for="search" class="sr-only">Buscar en el sitio</label>
+    <input
+            type="search"
+            id="search"
+            class="search-input"
+            placeholder="¿Qué estás buscando?"
+            autocomplete="off"
+    >
+    <button type="submit" class="search-btn">Buscar</button>
+  </form>
+
+  <nav class="suggestions" role="navigation" aria-label="Sugerencias de navegación">
+    <a href="/" class="suggestion">Página principal</a>
+    <a href="/productos" class="suggestion">Productos</a>
+    <a href="/servicios" class="suggestion">Servicios</a>
+    <a href="/blog" class="suggestion">Blog</a>
+    <a href="/contacto" class="suggestion">Contacto</a>
+  </nav>
+
+  <div class="buttons">
+    <a href="/" class="btn">🏠 Ir a la página principal</a>
+    <button type="button" class="btn btn-outline" onclick="history.back()">
+      ← Volver atrás
+    </button>
   </div>
 
-  <div class="suggestions">
-    <span class="suggestion">Página principal</span>
-    <span class="suggestion">Productos</span>
-    <span class="suggestion">Servicios</span>
-    <span class="suggestion">Blog</span>
-    <span class="suggestion">Contacto</span>
+  <div class="counter">
+    Eres el visitante <span class="counter-number" id="counter">1,337</span> que se ha perdido hoy
   </div>
-
-  <div>
-    <a href="#" class="btn" id="homeButton">Ir a la página principal</a>
-    <a href="#" class="btn btn-outline" id="backButton">Volver atrás</a>
-  </div>
-
-  <div class="error-counter">
-    Eres el visitante <span class="counter-number" id="visitorCounter">1,337</span> que se ha perdido hoy
-  </div>
-</div>
+</main>
 
 <script>
-  // Animación de elementos adicionales
-  document.addEventListener('DOMContentLoaded', function() {
-    // Generador de número aleatorio para el contador de visitantes
-    const randomVisitors = Math.floor(Math.random() * 2000) + 500;
-    document.getElementById('visitorCounter').textContent = randomVisitors.toLocaleString();
+  (function() {
+    'use strict';
 
-    // Funcionalidad del botón de atrás
-    document.getElementById('backButton').addEventListener('click', function(e) {
-      e.preventDefault();
-      window.history.back();
-    });
+    // Generar contador de visitantes aleatorio
+    const counter = document.getElementById('counter');
+    if (counter) {
+      const visitors = Math.floor(Math.random() * 1500) + 500;
+      counter.textContent = visitors.toLocaleString('es-ES');
+    }
 
-    // Funcionalidad del botón de inicio
-    document.getElementById('homeButton').addEventListener('click', function(e) {
-      e.preventDefault();
-      window.location.href = '/';
-    });
+    // Reloj analógico en tiempo real
+    function updateClock() {
+      const now = new Date();
+      const seconds = now.getSeconds();
+      const minutes = now.getMinutes();
+      const hours = now.getHours() % 12;
 
-    // Funcionalidad de búsqueda
-    document.getElementById('searchButton').addEventListener('click', performSearch);
-    document.getElementById('searchInput').addEventListener('keypress', function(e) {
-      if (e.key === 'Enter') {
-        performSearch();
+      // Calcular ángulos
+      const secondAngle = (seconds * 6) - 90; // 6 grados por segundo
+      const minuteAngle = (minutes * 6) + (seconds * 0.1) - 90; // 6 grados por minuto + movimiento suave
+      const hourAngle = (hours * 30) + (minutes * 0.5) - 90; // 30 grados por hora + movimiento suave
+
+      // Aplicar rotaciones
+      const secondHand = document.querySelector('.needle');
+      const minuteHand = document.querySelector('.minute-hand');
+      const hourHand = document.querySelector('.hour-hand');
+
+      if (secondHand) {
+        secondHand.style.transform = `translate(-50%, -100%) rotate(${secondAngle}deg)`;
       }
-    });
-
-    function performSearch() {
-      const searchQuery = document.getElementById('searchInput').value.trim();
-      if (searchQuery) {
-        // Aquí normalmente redirigirías a la página de búsqueda
-        alert('Buscando: ' + searchQuery);
-        // window.location.href = '/search?q=' + encodeURIComponent(searchQuery);
+      if (minuteHand) {
+        minuteHand.style.transform = `translate(-50%, -100%) rotate(${minuteAngle}deg)`;
+      }
+      if (hourHand) {
+        hourHand.style.transform = `translate(-50%, -100%) rotate(${hourAngle}deg)`;
       }
     }
 
-    // Hacer que las sugerencias sean clickeables
-    document.querySelectorAll('.suggestion').forEach(function(suggestion) {
-      suggestion.addEventListener('click', function() {
-        const text = this.textContent.toLowerCase();
-        // Aquí normalmente redirigirías a la sección correspondiente
-        alert('Navegando a: ' + text);
-        // window.location.href = '/' + text.replace(' ', '-');
+    // Actualizar reloj cada segundo
+    updateClock();
+    setInterval(updateClock, 1000);
+
+    // Funcionalidad de búsqueda
+    const searchForm = document.querySelector('.search-form');
+    if (searchForm) {
+      searchForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const query = document.getElementById('search').value.trim();
+        if (query) {
+          // Simular búsqueda - en producción redirigir a página de resultados
+          alert('Buscando: ' + query);
+          // window.location.href = '/buscar?q=' + encodeURIComponent(query);
+        }
       });
-    });
-
-    // Efecto de movimiento de la brújula según el cursor
-    document.addEventListener('mousemove', function(e) {
-      const compass = document.querySelector('.compass');
-      const needle = document.querySelector('.needle');
-
-      if (compass && needle) {
-        const rect = compass.getBoundingClientRect();
-        const compassCenterX = rect.left + rect.width / 2;
-        const compassCenterY = rect.top + rect.height / 2;
-
-        const angle = Math.atan2(e.clientY - compassCenterY, e.clientX - compassCenterX);
-        const degrees = angle * (180 / Math.PI) + 90;
-
-        needle.style.animation = 'none';
-        needle.style.transform = `translate(-50%, -100%) rotate(${degrees}deg)`;
-      }
-    });
-
-    // Restaurar la animación cuando el ratón abandona la ventana
-    document.addEventListener('mouseleave', function() {
-      const needle = document.querySelector('.needle');
-      if (needle) {
-        needle.style.animation = 'rotateNeedle 7s infinite ease-in-out';
-      }
-    });
-  });
+    }
+  })();
 </script>
 </body>
-
 </html>
-<!--
-  Este código HTML representa una página de error 404 personalizada.
-  Incluye estilos CSS para un diseño atractivo y moderno, así como
-  JavaScript para funcionalidades interactivas como búsqueda y navegación.
-    La página presenta un mensaje de error, una brújula animada y un contador de visitantes.

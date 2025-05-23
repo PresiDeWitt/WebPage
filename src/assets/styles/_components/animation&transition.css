@@ -226,3 +226,40 @@
 .ripple-effect:focus:not(:active)::after {
     animation: ripple 0.6s ease-out;
 }
+/* Keyframes para el efecto ripple */
+@keyframes rippleWave {
+    0% {
+        box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.7);
+        transform: scale(1);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(99, 102, 241, 0);
+        transform: scale(1.02);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(99, 102, 241, 0);
+        transform: scale(1);
+    }
+}
+
+/* Clase para el efecto hover */
+.hover-ripple {
+    position: relative;
+    overflow: hidden;
+    transition: all var(--transition-fast) var(--ease-out-expo);
+}
+
+.hover-ripple:hover {
+    animation: rippleWave 0.6s var(--ease-out-expo);
+}
+
+
+/* Animación de rotación lenta */
+@keyframes spinSlow {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

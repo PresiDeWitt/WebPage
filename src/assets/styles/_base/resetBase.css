@@ -28,7 +28,6 @@
   --font-size-3xl: 1.875rem;
   --font-size-4xl: 2.25rem;
   --font-size-5xl: 3rem;
-
   /* Spacing */
   --spacing-xs: 0.25rem;
   --spacing-sm: 0.5rem;
@@ -57,6 +56,11 @@
   --z-fixed: 30;
   --z-modal: 40;
   --z-tooltip: 50;
+
+
+
+    /* Animation */
+  --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 /* Dark theme variables */

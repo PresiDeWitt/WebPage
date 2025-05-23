@@ -614,4 +614,11 @@ themeToggle.addEventListener('click', () => {
     htmlElement.setAttribute('data-theme', 'dark');
     localStorage.setItem('theme', 'dark');
   }
-});
+});// Activa o desactiva el fuego del cohete
+function toggleFlame(show) {
+  const flame = document.getElementById("flame");
+  flame.style.display = show ? "block" : "none";
+}
+
+// Mostrar la llama
+toggleFlame(true);

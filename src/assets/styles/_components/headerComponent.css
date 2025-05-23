@@ -1,6 +1,10 @@
 /* =========================================
    7. Header
    ========================================= */
+:root {
+  --header-height: 4rem; /* ~64px, ajustable */
+}
+
 .header {
   position: fixed;
   top: 0;
@@ -31,6 +35,7 @@
   height: var(--header-height);
 }
 
+/* Alineación del logo */
 .logo {
   display: flex;
   align-items: center;
@@ -41,4 +46,10 @@
 
 .logo i {
   color: var(--primary-color);
+}
+
+/* Hero corregido */
+.hero {
+  padding-top: calc(var(--header-height) + 1.5rem); /* deja solo el espacio justo bajo el header */
+  margin-top: 0;
 }
